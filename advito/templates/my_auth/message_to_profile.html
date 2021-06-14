@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="message-to-profile">
+    {% if messages %}
+      <ul class="messages-to">
+        {% for message in messages %}
+          <li class="message">
+            <p class="message__name">От кого: <i class="message__name_text">{{ message.author }}</i></p>
+            <p class="message__name">Сообщение: <i class="message__name_text">{{ message.text }}</i></p>
+            <p class="message__name">Объявление: <i class="message__name_text">{{ message.in_post.name_descript }}</i></p>
+            <p class="message__name">Дата отправления: <i class="message__name_text">{{ message.date_pub }}</i></p>
+          </li>
+          <p><a class="message-button" href="{% url 'advito:post_message' message.in_post.id %}">Ответить</a></p>
+          {% comment %} <form method="POST">
+            {% csrf_token %}
+            <button class="button" type="submit" name="buton-message-del">Удалить сообщение</button>
+          </form> {% endcomment %}
+          <hr>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <i>Пока сообщений нет</i>
+    {% endif %}
+  </div>
+{% endblock  %}
