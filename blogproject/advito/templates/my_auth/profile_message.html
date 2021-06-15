@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="profile-messages">
+    <h1>Мои сообщения:</h1>
+    {% if messages %}
+      <ul class="prof-messages">
+        {% for message in messages %}
+          <li class="message">
+          <p class="message__name">Сообщение: <i class="message__name_text">{{ message.text }}</i></p>
+            <p class="message__name">Объявление: <i class="message__name_text">{{ message.in_post.name_descript }};</i>
+            Кому: <i class="message__name_text">{{ message.to_whom }}</i></p>
+            <p class="message__name">Дата отправления: <i class="message__name_text">{{ message.date_pub }}</i></p>
+          </li>
+          {% comment %} <form method="POST">
+            {% csrf_token %}
+            <button class="button" type="submit">Удалить сообщение</button>
+          </form> {% endcomment %}
+          <hr>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <i>Пока сообщений нет</i>
+    {% endif %}
+  </div>
+{% endblock  %}
