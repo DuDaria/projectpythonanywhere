@@ -1,0 +1,164 @@
+.section {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.posts, .cards {
+  display:flex; 
+  flex-wrap:wrap;
+}
+
+.post {
+  max-width:250px;
+  padding: 10px; 
+  border: solid 1px;
+  margin-right: 20px;
+  margin-bottom:20px
+}
+
+.post:hover,
+.post:active,
+.post:focus {
+  opacity: 0.7;
+}
+
+.signup-main {
+  display:flex; 
+  flex-direction:column; 
+  align-self:center;
+  width: 30%;
+  min-width: 300px;
+  margin: 0 auto; 
+  margin-top: 20px;  
+  border: solid 1px;
+}
+
+.signup__form {
+  display:flex; 
+  flex-direction:column; 
+  margin: 0 auto; 
+}
+
+.login-main {
+  width: 30%; 
+  min-width: 300px;
+  margin: 0 auto; 
+}
+
+.login {
+  padding: 20px;
+  display:flex; 
+  flex-direction:column; 
+  margin: 0 auto; 
+  margin-top: 20px;
+  border: solid 1px;
+}
+
+.login__form {
+  display:flex; 
+  flex-direction:column; 
+}
+
+.profile-main {
+  width: 70%;
+  margin: 0 auto; 
+}
+
+.profile__form {
+  display:flex; 
+  flex-direction: column; 
+  align-self: center;
+  margin-top: 20px;
+}
+
+.personal-info {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.personal-info__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-button, 
+.add-vaforite-button,
+.del-post-button, 
+.create-post__button,
+.log-button__submit,
+.button__href, 
+.button,
+.button__submit {
+  cursor: pointer;
+  border-radius: 7px;
+  padding: 5px;
+  background-color: rgb(98, 150, 218);
+  font-weight: bold;
+  color: #ffffff;
+  max-width: 200px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.message-button:hover, 
+.add-vaforite-button:hover,
+.del-post-button:hover,
+.create-post__button:hover,
+.button__href:hover, 
+.button:hover {
+  opacity: 0.8;
+} 
+
+.post-detail-main {
+  display: flex;
+}
+
+.post-detail {
+  width: 50%;
+}
+
+.post-detail__info {
+  margin-top: 200px;
+  margin-left: 50px;
+}
+
+/* .button {
+  text-decoration: none;
+  padding: 1px 20px;
+  background-color: #cdd1d6;
+  border-radius: 2px;
+  border: solid 1px #000000;
+} */
+
+.form-delete {
+  margin-bottom: 20px;
+}
+
+.post-create {
+  display:flex; 
+  flex-direction:column; 
+  align-self:center; 
+  width: 70%;
+  margin: 0 auto; 
+  margin-top: 20px;
+}
+
+.comments{
+  width: 40%;
+}
+
+.comment__form{
+  width: 80%;
+  margin-left: 38px;
+  padding-bottom: 20px;
+}
+
+.help__text{
+  margin-left: 20px; 
+  font-weight: bold; 
+  font-size: 30px; 
+  color:rgb(59, 72, 247); 
+  align-self:center;
+}

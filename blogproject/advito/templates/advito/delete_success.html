@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Пост удален</h1>
+    <a class="button__href" href="{% url 'advito:index' %}">Вернуться на главную</a> ИЛИ
+    <a class="button__href" href="{% url 'advito:post_create' %}">Создать новый пост</a>
+{% endblock  %}
