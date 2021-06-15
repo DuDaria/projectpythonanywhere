@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <form class="message__form" method="POST">
+      {% csrf_token %}
+      {{ message_form.text }}<br>
+      {% if message_was_created or message_with_errors %}
+        <button class="button" style="display:none" type="submit">Отправить сообщение</button>
+      {% else %}
+      <h3>Кому: {{ author }}:</h3>
+        <button class="button" type="submit" name="button_send_message">Отправить сообщение</button>
+      {% endif %}
+    </form>
+  {% else %}
+    <h2>Пожалуста Войдите или Зарегистрируйтесь!</h2>
+  {% endif %}
+
+  {% if message_with_errors %}
+    <p>Исправьте ошибки</p>
+  {% endif %}
+
+  {% if message_was_created %}
+    <h2>Успешно отправлено!</h2>
+  {% endif %}
+{% endblock  %}
