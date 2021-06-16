@@ -20,6 +20,7 @@ from blogproject import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('advito.main_urls')),
     path('advito/', include('advito.urls'))
 ]
 
