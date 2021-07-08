@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Отзывы о продавце:</h2>
+    {% if post.author != user %}
+      <div class="reviews">
+        {% if reviews %}
+          <ul>
+            {% for review in reviews %}
+              <li class="review">
+                <p class="review__name"><a href="#">{{ review.author }}</a></p>
+                <p class="review__name"><i class="stars">{{ review.rating }}</i></p>
+                {% if review.text %}
+                  <p class="review__name"><i class="review__name_text">{{ review.text }}</i></p>
+                {% endif %}
+                <p class="review__name"><i class="review__name_text">{{ review.date_pub }}</i></p>
+                <hr>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p><i>Пока отзывов нет</i></p>
+        {% endif %}
+      </div>
+        <div class="success"> 
+          <div>
+            <h2 class="success-title">Оценить продавца:</h2>
+            <form class="success-list" method="POST">
+              {% csrf_token %}
+              <input class="success__input hidden" id="star-5" type="radio" name="rating" value="5">
+              <label class="success__lable" for="star-5" title="Оценка «5»">
+                <svg class="svg" width="20" height="20" viewBox="0 0 17 17">
+                  <path d="M 7.5 3 
+                  L 6.5 6.2 L 3.3 6.2 
+                  C 2 6.2 1 6.2 1.6 7.4
+                  L 2.6 8.5 L 5.3 10 L 4.3 13.2
+                  C 3.9 14.4 3 17 6 15
+                  L 6.5 14.4 L 8.5 12.4 L 10.5 14.4
+                  C 12 15.5 12.5 16.3 13.2 14.4
+                  L 12.8 13 L 11.8 10 L 14.5 8.5
+                  C 15.5 7.7 16.3 6.6 15.1 6.2
+                  L 14 6.2 L 10.6 6.2 L 9.6 3.1
+                  C 9.2 2 8.5 1.5 8 2
+                  Z"></path>
+                </svg>
+              </label>
+              <input class="success__input hidden" id="star-4" type="radio" name="rating" value="4">
+              <label class="success__lable" for="star-4" title="Оценка «4»">
+                <svg class="svg" width="20" height="20" viewBox="0 0 17 17">
+                  <path d="M 7.5 3 
+                    L 6.5 6.2 L 3.3 6.2 
+                    C 2 6.2 1 6.2 1.6 7.4
+                    L 2.6 8.5 L 5.3 10 L 4.3 13.2
+                    C 3.9 14.4 3 17 6 15
+                    L 6.5 14.4 L 8.5 12.4 L 10.5 14.4
+                    C 12 15.5 12.5 16.3 13.2 14.4
+                    L 12.8 13 L 11.8 10 L 14.5 8.5
+                    C 15.5 7.7 16.3 6.6 15.1 6.2
+                    L 14 6.2 L 10.6 6.2 L 9.6 3.1
+                    C 9.2 2 8.5 1.5 8 2
+                    Z"></path>
+                </svg>
+              </label>
+              <input class="success__input hidden" id="star-3" type="radio" name="rating" value="3">
+              <label class="success__lable" for="star-3" title="Оценка «3»">
+                <svg class="svg" width="20" height="20" viewBox="0 0 17 17">
+                  <path d="M 7.5 3 
+                    L 6.5 6.2 L 3.3 6.2 
+                    C 2 6.2 1 6.2 1.6 7.4
+                    L 2.6 8.5 L 5.3 10 L 4.3 13.2
+                    C 3.9 14.4 3 17 6 15
+                    L 6.5 14.4 L 8.5 12.4 L 10.5 14.4
+                    C 12 15.5 12.5 16.3 13.2 14.4
+                    L 12.8 13 L 11.8 10 L 14.5 8.5
+                    C 15.5 7.7 16.3 6.6 15.1 6.2
+                    L 14 6.2 L 10.6 6.2 L 9.6 3.1
+                    C 9.2 2 8.5 1.5 8 2
+                    Z"></path>
+                </svg>
+              </label>
+              <input class="success__input hidden" id="star-2" type="radio" name="rating" value="2">
+              <label class="success__lable" for="star-2" title="Оценка «2»">
+                <svg class="svg" width="20" height="20" viewBox="0 0 17 17">
+                  <path d="M 7.5 3 
+                    L 6.5 6.2 L 3.3 6.2 
+                    C 2 6.2 1 6.2 1.6 7.4
+                    L 2.6 8.5 L 5.3 10 L 4.3 13.2
+                    C 3.9 14.4 3 17 6 15
+                    L 6.5 14.4 L 8.5 12.4 L 10.5 14.4
+                    C 12 15.5 12.5 16.3 13.2 14.4
+                    L 12.8 13 L 11.8 10 L 14.5 8.5
+                    C 15.5 7.7 16.3 6.6 15.1 6.2
+                    L 14 6.2 L 10.6 6.2 L 9.6 3.1
+                    C 9.2 2 8.5 1.5 8 2
+                    Z"></path>
+                </svg>
+              </label>
+              <input class="success__input hidden" id="star-1" type="radio" name="rating" value="1">
+              <label class="success__lable" for="star-1" title="Оценка «1»">
+                <svg class="svg" width="20" height="20" viewBox="0 0 17 17">
+                  <path d="M 7.5 3 
+                    L 6.5 6.2 L 3.3 6.2 
+                    C 2 6.2 1 6.2 1.6 7.4
+                    L 2.6 8.5 L 5.3 10 L 4.3 13.2
+                    C 3.9 14.4 3 17 6 15
+                    L 6.5 14.4 L 8.5 12.4 L 10.5 14.4
+                    C 12 15.5 12.5 16.3 13.2 14.4
+                    L 12.8 13 L 11.8 10 L 14.5 8.5
+                    C 15.5 7.7 16.3 6.6 15.1 6.2
+                    L 14 6.2 L 10.6 6.2 L 9.6 3.1
+                    C 9.2 2 8.5 1.5 8 2
+                    Z"></path>
+                </svg>
+              </label>
+              <p>Оценка:</p>
+            </div>
+            <span>Оставьте отзыв:</span>
+            <p>{{ review_form.text }}</p>
+            <button class="button" type="submit" name="button_send_coment">Оставить отзыв</button>
+          </div>
+        </form>
+    {% endif %}
+  {% else %}
+    <h2>Пожалуста Войдите или Зарегистрируйтесь!</h2>
+  {% endif %}
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock  %}
