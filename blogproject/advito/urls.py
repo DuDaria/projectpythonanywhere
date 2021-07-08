@@ -24,7 +24,7 @@ urlpatterns = [
     ), name='post_delete_success'),
     path('post/<int:post_id>/message/', views.PostCreateMessageView.as_view(), name='post_message'),
     path('post/<int:post_id>/message/<int:message_id>/', views.PostCreateMessageView.as_view(), name='post_message_reply'),
-    
+    path('post/<int:post_id>/review/', views.ReviewCreateView.as_view(), name='review'),
     
     # views_auth
 
@@ -32,7 +32,9 @@ urlpatterns = [
     path('<int:user_id>/profile/update', views_auth.UpdateProfileView.as_view(), name='profile_update'),
     path('<int:user_id>/profile/posts/', views_auth.profile_posts, name='profile_posts'),
     path('<int:user_id>/profile/messages/', views_auth.ProfileMessageView.as_view(), name='profile_message'),
+    path('<int:user_id>/profile/reviews/', views_auth.profile_review, name='profile_review'),
     path('<int:user_id>/profile/message_to/', views_auth.MessageToProfileView.as_view(), name='message_to_profile'),
+    path('<int:user_id>/profile/review_to/', views_auth.review_to_profile, name='review_to_profile'),
     path('<int:user_id>/profile/comments/', views_auth.ProfileCommentView.as_view(), name='profile_comment'),
     path('<int:user_id>/profile/posts/favorite', views.FavoritePostView.as_view(), name='favorite_post'),  
 

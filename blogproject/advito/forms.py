@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User 
-from .models import Post, Comment, Message
+from .models import Post, Comment, Message, Review
 
 
 class PostForm(forms.ModelForm):
@@ -59,6 +59,7 @@ class CommentForm(forms.ModelForm):
             })
         } 
 
+
 class MessageForm(forms.ModelForm):
     
     class Meta:
@@ -77,3 +78,25 @@ class MessageForm(forms.ModelForm):
             }),
         } 
 
+
+class ReviewForm(forms.ModelForm):
+    
+    class Meta:
+        model = Review
+
+        fields =['rating', 'text']
+
+        labels = {
+            'text': 'Оставьте комментарий'
+        }
+
+        widjets = {
+            'text': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Текст комментария'
+            }),
+            'rating': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'рейтинг',
+            }),
+        }

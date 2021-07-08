@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-reviews">
+  <h1>Мои отзывы:</h1>
+  {% if reviews %}
+    <ul class="prof-reviews">
+      {% for review in reviews %}
+        <li class="review">
+          <p class="review__name">Кому: <i class="review__name_text">{{ review.to_whom }}</i></p>
+          <p class="review__name">Кол-во звезд:&nbsp<i class="stars"> {{ review.rating }}</i></p>
+          {% if  review.text %}
+            <p class="review__name">Отзыв: <i class="review__name_text">{{ review.text }}</i></p>
+          {% endif %}
+          <p class="review__name">Дата: <i class="review__name_text">{{ review.date_pub }}</i></p>
+        </li>
+        <hr>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <i>Пока отзывов нет</i>
+  {% endif %}
+  </div>
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock  %}

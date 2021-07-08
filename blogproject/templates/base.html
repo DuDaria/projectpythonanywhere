@@ -11,6 +11,7 @@
     </title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
     <header class="container-back">
@@ -56,28 +57,22 @@
         <div class="index-form" data-marker="search-form">
           <div class="category">
             <div class="category-select">
-              <select name="category_id" class="select" style="height: 21px;">
-                <option>
-                  <a href="{% url 'advito:index' %}">Любая категория</a>
-                </option>
+              <select id="my_select" name="category_id" class="select" style="height: 27px;" onchange="getData(this)">
+                <option selected="selected" disabled>Выберите категорию...</option>
+                <option class="category-select" value="#" href="/advito/index">Все категории</option>
                 {% for category in categories %}
-                  <option active class="category-select-group">
-                    <a  href="/advito/category/{{ category.id }}"> 
-                      {{ category.name_category }}
-                    </a>
+                  <option class="category-select" value="{{ category.id }}" 
+                    href="/advito/category/{{ category.id }}">
+                    {{ category.name_category }}
                   </option>
                 {% endfor %}
               </select>
             </div>
           </div>
-          <div class="form">
-            <input type="text" placeholder="Поиск по объявлениям" maxlength="100" class="suggest">
-          </div>  
-          <div class="form-button">
-            <button class="button-element">
-              <span class="button-text">Найти</span>
-            </button>
-          </div>
+          <form class="form_search" action="{% url 'advito:index' %}" method="get">
+            <input name="q" type="search" placeholder="Поиск по объявлениям...">
+            <button class="button-text">Найти</button>
+          </form>
           <div class="username">
             <span> Привет:&nbsp</span>
             {% if not user.is_authenticated %}
@@ -89,14 +84,8 @@
               <a class="profile-exit__href" href="{% url 'advito:logout' %}">Выход</a>
             {% endif %}
           </div>
-        </div>
-        <div>
-          {% for category in categories %}
-            <a class="category__href" href="/advito/category/{{ category.id }}"> 
-              {{ category.name_category }}
-            </a>
-          {% endfor %}
-        </div>
+       </div>
+       <i class="users_counter">{{ text }}{{ users_counter }}</i>
     </div>
   </header>
 
@@ -170,5 +159,6 @@
         </div>
       </div>
     </footer>
+    <script src="{% static 'js/base_script.js' %}"></script>
   </body>
 </html>

@@ -18,9 +18,9 @@ li {
   list-style-type: none
 }
 
-/* .img {
+.img {
   width: 100%;
-} */
+}
 
 img { 
   max-width: 100%;
@@ -161,58 +161,12 @@ img {
   fill: #FFFFFF;
 }
 
-.profile__img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 30px;
-}
-
-.profile-update__form {
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pagination{
-  display: flex;
-  margin: auto;
-  min-width: 300px;
-}
-
-.pages {
-  display: flex;
-  margin: 0 auto;
-}
-
-.page__item {
-  padding: 5px 8px;
-  border: solid 1px;
-}
-.page__item:hover,
-.page__item:active,
-.page__item:focus {
-  background-color: #81B3D2;
-}
-
-.active{
-  background-color: #81B3D2;
-}
-
-.messages {
-  padding: 10px;
-}
-
-.message__name,
-.comment__name {
-  font-weight: bold;
-}
-
-.message__name_text,
-.comment__name_text {
-  font-weight: initial;
-}
-
-.page__item > .disabled {
-  cursor: inherit;
-  color: gray;
+.hidden {
+  position: absolute!important;
+  clip: rect(1px,1px,1px,1px);
+  padding: 0!important;
+  border: 0!important;
+  height: 1px!important;
+  width: 1px!important;
+  overflow: hidden;
 }
