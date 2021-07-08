@@ -8,6 +8,11 @@
     <div class="post-detail">
       <h1>{{ post.name_descript }}</h1>
       <p>Автор: {{ post.author }}</p>
+
+       {% if post.author != user %}
+        <p><a class="message-button" href="{% url 'advito:review' post.id %}">Отзывы о продавце</a></p>
+      {% endif %}
+
       <p>{{ post.date_pub }}</p>
       <img class="img" alt="post image" src="{{ post.image.url }}">
     </div>

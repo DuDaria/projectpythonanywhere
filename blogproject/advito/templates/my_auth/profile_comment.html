@@ -8,7 +8,7 @@
           <li class="comment">
             <p class="comment__name">Комментарий: <i class="comment__name_text">{{ comment.text }}</i></p>
             <p class="comment__name">Объявление: <i class="comment__name_text">{{ comment.in_post.name_descript }}</i>; Автор: <i>{{ comment.in_post.author }}</i></p>
-            <p class="comment__name">Дата отправления: <i class="comment__name_text">{{ comment.date_publish }}</i></p>
+            <p class="comment__name">Дата: <i class="comment__name_text">{{ comment.date_publish }}</i></p>
           </li>
           {% comment %} <form method="POST">
             {% csrf_token %}

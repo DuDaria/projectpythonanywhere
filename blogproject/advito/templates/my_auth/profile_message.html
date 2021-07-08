@@ -9,7 +9,7 @@
           <p class="message__name">Сообщение: <i class="message__name_text">{{ message.text }}</i></p>
             <p class="message__name">Объявление: <i class="message__name_text">{{ message.in_post.name_descript }};</i>
             Кому: <i class="message__name_text">{{ message.to_whom }}</i></p>
-            <p class="message__name">Дата отправления: <i class="message__name_text">{{ message.date_pub }}</i></p>
+            <p class="message__name">Дата: <i class="message__name_text">{{ message.date_pub }}</i></p>
           </li>
           {% comment %} <form method="POST">
             {% csrf_token %}

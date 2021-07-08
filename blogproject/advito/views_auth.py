@@ -90,11 +90,6 @@ class UpdateProfileView(UpdateView):
 
 def profile_posts(request, user_id):
     posts = Post.objects.filter(author_id=user_id, date_pub__year=2021).order_by('-date_pub')
-    # paginate_by = 6
-    # paginator = Paginator(posts, paginate_by)
-    # page_number = request.GET.get('page', 1)
-    # page = paginator.get_page(page_number)
-    # is_paginated = page.has_other_pages()
     categories = CategoryPost.objects.all()
     template_name = 'advito/index.html'
     page, is_paginated, prev_url, next_url = paginate(posts, request)

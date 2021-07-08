@@ -50,6 +50,8 @@
           <a href="{% url 'advito:favorite_post' user.id %}">Избранные обьявления;</a>
           <a href="{% url 'advito:profile_comment' user.id %}">Мои комментарии;</a>
           <a href="{% url 'advito:profile_message' user.id %}">Мои сообщения;</a>
+          <a href="{% url 'advito:profile_review' user.id %}">Мои отзывы;</a>
+          <a href="{% url 'advito:review_to_profile' user.id %}">Отзывы обо мне;</a>
           <a href="{% url 'advito:message_to_profile' user.id %}">Сообщения адресованные мне;</a>
         {% endif %}
       </li>
